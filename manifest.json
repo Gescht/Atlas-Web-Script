@@ -1,0 +1,23 @@
+{
+  "description": "The script converts item data of the turtle database into the format used by AtlasLoot",
+  "manifest_version": 2,
+  "name": "Atlas-Web-Script",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/atlas.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://database.turtle-wow.org/*"],
+      "js": ["atlas-script.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "atlaslootscript@gescht"
+    }
+  }
+}
