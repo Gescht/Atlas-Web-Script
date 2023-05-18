@@ -53,6 +53,7 @@ const weaponType = {
 var noSlot          = false;
 var noType          = false;
 var noEquip         = false;
+var isBag           = false;
 //final item string info (for atlas loot usage)
 var itemString      = null;
 //item data
@@ -88,7 +89,12 @@ function allDataExists() {
 }
 //convert item info into atlasloot shorthand
 function convertItemSlotType(index, arrayItemSlotType) {
-    let itemInfo = arrayItemSlotType[index].replace(/ /g,"").replace(/-/g,"");
+    let itemInfo = null;
+    try {
+        itemInfo = arrayItemSlotType[index].replace(/ /g,"").replace(/-/g,"");
+    } catch {
+        return null
+    }
     if (index == 0) {
         let infoWeapon = weaponSlot[itemInfo];
         let infoSlot = armorSlot[itemInfo];
@@ -119,14 +125,57 @@ function consoleLog() {
     console.log("Type: "+itemType);
     console.log("Droprate: "+itemDroprate);
 }
-function getItemData() {
-    var itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
-    itemId          = document.URL.match(/(\d*)$/)[0];
-    itemIcon        = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
-    itemQuality     = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
-    itemName        = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
-    itemSlot        = convertItemSlotType(0,itemSlotType);
-    itemType        = convertItemSlotType(1,itemSlotType);
+function getItemDataEquip() {
+    let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
+    itemId              = document.URL.match(/(\d*)$/)[0];
+    itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
+    itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
+    itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
+    itemSlot            = convertItemSlotType(0,itemSlotType);
+    itemType            = convertItemSlotType(1,itemSlotType);
+}
+function getItemDataBag() {
+    itemId              = document.URL.match(/(\d*)$/)[0];
+    itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
+    itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
+    itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
+    isBag               = true;
+    debugger;
+}
+//figure out what type of item we are looking at and get the data of the item
+function getItemTypeData(){
+    let preContent = document.getElementById("main-precontents").innerHTML;
+    if (preContent.includes("Weapons")) {
+        getItemDataEquip();
+        checkForExceptions();
+        createItemStringEquip();
+    } else if (preContent.includes("Armor")) {
+        getItemDataEquip();
+        checkForExceptions();
+        createItemStringEquip();
+    } else if (preContent.includes("Containers")) {
+        getItemDataBag();
+        createItemStringBag();
+    }  else if (preContent.includes("Consumables")) {
+
+    } else if (preContent.includes("Trade Goods")) {
+
+    } else if (preContent.includes("Projectiles")) {
+
+    } else if (preContent.includes("Quivers")) {
+
+    } else if (preContent.includes("Recipes")) {
+
+    } else if (preContent.includes("Miscellaneous")) {
+
+    } else if (preContent.includes("Quest")) {
+
+    } else if (preContent.includes("Keys")) {
+
+    } else {
+        throw "unknown item type";
+        return null;
+    }
 }
 //flag variables if the item is an exception
 function checkForExceptions(){
@@ -174,10 +223,8 @@ function handleRelic() {
         return ""
     }
 }
-//create the final item info string
-function createItemString() {
-    getItemData();
-    checkForExceptions();
+//create the final item info string for equipment
+function createItemStringEquip() {
     let itemInfo = null;
     if (noEquip) {
         itemInfo = "\"\"";
@@ -192,6 +239,10 @@ function createItemString() {
         itemInfo = ("\"=ds=#"+itemSlot+"#, #"+itemType+"#\"");
     }
     itemString = ("\t\t{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+", \""+itemDroprate+"%\" },");
+}
+//create the final item info string for bags
+function createItemStringBag() {
+    itemString = ("\t\t{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", \"=ds=#e10#\", \""+itemDroprate+"%\" },");
 }
 //copy string to clipboard
 //function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
@@ -223,7 +274,7 @@ function createButton() {
 getItemTooltip();
 getItemDroprate()
 if (allDataExists()) {
-    createItemString();
+    getItemTypeData();
     createButton();
     document.getElementsByTagName("h2")[0].innerText = "See also - "+itemString;
     //consoleLog();
