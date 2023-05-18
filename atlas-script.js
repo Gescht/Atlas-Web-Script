@@ -238,11 +238,11 @@ function createItemStringEquip() {
     } else {
         itemInfo = ("\"=ds=#"+itemSlot+"#, #"+itemType+"#\"");
     }
-    itemString = ("\t\t{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+", \""+itemDroprate+"%\" },");
+    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+", \""+itemDroprate+"%\" },");
 }
 //create the final item info string for bags
 function createItemStringBag() {
-    itemString = ("\t\t{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", \"=ds=#e10#\", \""+itemDroprate+"%\" },");
+    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", \"=ds=#e10#\", \""+itemDroprate+"%\" },");
 }
 //copy string to clipboard
 //function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
