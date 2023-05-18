@@ -43,12 +43,15 @@ const weaponType = {
     Thrown:"w11",
     Wand:"w12",
     FistWeapon:"w13",
-    FishingPole:"w14"
+    FishingPole:"w14",
+    Totem:"Totem",
+    Idol:"Idol",
+    Libram:"Libram"
     }
 /* variables */
 //exception case tracker
-var slotOnly        = false;
-var typeOnly        = false;
+var noSlot          = false;
+var noType          = false;
 var noEquip         = false;
 //final item string info (for atlas loot usage)
 var itemString      = null;
@@ -85,12 +88,25 @@ function allDataExists() {
 }
 //convert item info into atlasloot shorthand
 function convertItemSlotType(index, arrayItemSlotType) {
-    try {
-        let itemInfo = arrayItemSlotType[index].replace(/ /g,"").replace(/-/g,"");
-        return weaponSlot[itemInfo] || armorType[itemInfo] || weaponType[itemInfo] || armorSlot[itemInfo];
-    }
-    catch {
-        return false;
+    let itemInfo = arrayItemSlotType[index].replace(/ /g,"").replace(/-/g,"");
+    if (index == 0) {
+        let infoWeapon = weaponSlot[itemInfo];
+        let infoSlot = armorSlot[itemInfo];
+        if (infoWeapon !== undefined){
+            return infoWeapon;
+        } else if (infoSlot !== undefined){
+            return infoSlot;
+        }
+        return null;
+    } else if (index == 1) {
+        let infoWeapon = weaponType[itemInfo];
+        let infoSlot = armorType[itemInfo];
+        if (infoWeapon !== undefined){
+            return infoWeapon;
+        } else if (infoSlot !== undefined){
+            return infoSlot;
+        }
+        return null;
     }
 }
 //debug print item values
@@ -108,54 +124,50 @@ function getItemData() {
     itemId          = document.URL.match(/(\d*)$/)[0];
     itemIcon        = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
     itemQuality     = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
-    itemName        = document.getElementsByTagName("h1")[1].textContent;
+    itemName        = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
     itemSlot        = convertItemSlotType(0,itemSlotType);
     itemType        = convertItemSlotType(1,itemSlotType);
 }
 //flag variables if the item is an exception
 function checkForExceptions(){
-    switch (itemSlot) {
-    case "s4":
-    case "s14":
-    case "s16":
-        slotOnly = true;
-        break;
-    case false:
-    case undefined:
+    if (itemSlot === null && itemType === null) {
         noEquip = true;
+        return;
+    }
+    switch (itemSlot) {
+    case "s2"://neck
+    case "s4"://back
+    case "s6"://shirt
+    case "s7"://tabard
+    case "s13"://finger
+    case "s14"://trinket
+    case "s15"://held in off hand
+        noType = true;
         break;
     default:
-        slotOnly = false;
-        noEquip = false;
         break;
     }
     switch (itemType) {
-    case "w2":
-    case "w3":
-    case "w5":
-    case "w7":
-    case "w8":
-    case "w9":
-    case "w11":
-    case "w12":
-        typeOnly = true;
-        break;
-    case false:
-    case undefined:
-        noEquip = true;
+    case "w2"://bow
+    case "w3"://crossbow
+    case "w5"://gun
+    case "w7"://polearm
+    case "w8"://shield
+    case "w9"://staff
+    case "w11"://thrown
+    case "w12"://wand
+        noSlot = true;
         break;
     default:
-        typeOnly = false;
-        noEquip = false;
         break;
     }
 }
 function handleRelic() {
-    if (itemName.includes("Libram of")) {
+    if (itemType == "Libram") {
         return ("\"=ds=#s16#, #e18# =q16=#c4#\"");
-    } else if (itemName.includes("Idol of")) {
+    } else if (itemType == "Idol") {
         return ("\"=ds=#s16#, #e16# =q13=#c1#\"");
-    } else if (itemName.includes("Totem of")) {
+    } else if (itemType == "Totem") {
         return ("\"=ds=#s16#, #e17# =q15=#c7#\"");
     } else {
         throw "Item is a relic, but not detected as Libram, Idol or Totem.";
@@ -171,9 +183,9 @@ function createItemString() {
         itemInfo = "\"\"";
     } else if (itemSlot == "s16") {
         itemInfo = handleRelic();
-    } else if (slotOnly) {
+    } else if (noType) {
         itemInfo = ("\"=ds=#"+itemSlot+"#\"");
-    } else if (typeOnly) {
+    } else if (noSlot) {
         itemInfo = ("\"=ds=#"+itemType+"#\"");
     //normal items
     } else {
@@ -182,7 +194,8 @@ function createItemString() {
     itemString = ("\t\t{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+", \""+itemDroprate+"%\" },");
 }
 //copy string to clipboard
-function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
+//function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
+function copyToClipboard(text) { navigator.clipboard.writeText(text);}
 //create the html
 function createButton() {
     let newSpan         = document.createElement('span');
@@ -212,5 +225,6 @@ getItemDroprate()
 if (allDataExists()) {
     createItemString();
     createButton();
-    consoleLog();
+    document.getElementsByTagName("h2")[0].innerText = "See also - "+itemString;
+    //consoleLog();
 }
