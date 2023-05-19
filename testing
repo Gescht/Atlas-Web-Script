@@ -1,7 +1,27 @@
-<table style="width: 100%;">
-    <tbody>
+<table>
+    <thead>
     <tr>
-        <td><b class="q3">Panther Hide Sack</b><br>Binds when picked up<br>Unique<br>18 Slot Bag<br></td>
+        <th style="text-align: left;">
+            <div><a href="javascript:;"><span><span>Name</span></span></a></div>
+        </th>
+        <th>
+            <div><a href="javascript:;"><span><span>Location</span></span></a></div>
+        </th>
+        <th style="width: 12%;">
+            <div><a href="javascript:;"><span><span>Type</span></span></a></div>
+        </th>
+        <th style="width: 10%;">
+            <div><a href="javascript:;"><span class="sortdesc"><span>%</span></span></a></div>
+        </th>
+    </tr>
+    </thead>
+    <tbody class="listview-std">
+    <tr>
+        <td style="text-align: left;"><a style="font-family: Verdana, sans-serif;" href="?object=103821">Doan's
+            Strongbox</a></td>
+        <td></td>
+        <td class="small q1"><a href="?objects=3">Container</a></td>
+        <td>100</td>
     </tr>
     </tbody>
 </table>

@@ -54,6 +54,9 @@ var noSlot          = false;
 var noType          = false;
 var noEquip         = false;
 var isBag           = false;
+var isMisc          = false;
+var isQuest         = false;
+var isKey           = false;
 //final item string info (for atlas loot usage)
 var itemString      = null;
 //item data
@@ -73,11 +76,22 @@ function getItemTooltip(){ itemTooltip = document.getElementsByClassName("toolti
 //check the droprate
 function getItemDroprate(){
     //get the loot table
-    var lootTables      = document.querySelectorAll("table");
-    var lootTable       = lootTables[(lootTables.length-1)];
+    var hasDroprate     = false;
     try {
-        itemDroprate        = lootTable.rows.item(1).cells.item(5).innerHTML;
-    } catch {}
+        let allTables           = document.querySelectorAll("table");
+        let lootTable           = allTables[(allTables.length-1)];
+        let lootTableFirstRow   = lootTable.rows.item(0).cells;
+        let lastColumnIndex     = lootTableFirstRow.length-1;
+        let cellPercent         = lootTableFirstRow.item(lastColumnIndex).innerText;
+        if (cellPercent == "%") {
+            hasDroprate = true;
+            itemDroprate = lootTable.rows.item(1).cells.item(lastColumnIndex).innerText;
+        } else {
+            itemDroprate = false;
+        }
+    } catch {
+        throw("Couldn't detect a droprate")
+    }
 }
 function allDataExists() {
     if (itemTooltip === undefined) {
@@ -125,6 +139,7 @@ function consoleLog() {
     console.log("Type: "+itemType);
     console.log("Droprate: "+itemDroprate);
 }
+//get the raw item data
 function getItemDataEquip() {
     let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
     itemId              = document.URL.match(/(\d*)$/)[0];
@@ -134,13 +149,11 @@ function getItemDataEquip() {
     itemSlot            = convertItemSlotType(0,itemSlotType);
     itemType            = convertItemSlotType(1,itemSlotType);
 }
-function getItemDataBag() {
+function getItemDataLight() {
     itemId              = document.URL.match(/(\d*)$/)[0];
     itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
     itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
     itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
-    isBag               = true;
-    debugger;
 }
 //figure out what type of item we are looking at and get the data of the item
 function getItemTypeData(){
@@ -148,14 +161,12 @@ function getItemTypeData(){
     if (preContent.includes("Weapons")) {
         getItemDataEquip();
         checkForExceptions();
-        createItemStringEquip();
     } else if (preContent.includes("Armor")) {
         getItemDataEquip();
         checkForExceptions();
-        createItemStringEquip();
     } else if (preContent.includes("Containers")) {
-        getItemDataBag();
-        createItemStringBag();
+        isBag = true;
+        getItemDataLight();
     }  else if (preContent.includes("Consumables")) {
 
     } else if (preContent.includes("Trade Goods")) {
@@ -167,15 +178,18 @@ function getItemTypeData(){
     } else if (preContent.includes("Recipes")) {
 
     } else if (preContent.includes("Miscellaneous")) {
-
+        isMisc = true;
+        getItemDataLight();
     } else if (preContent.includes("Quest")) {
-
+        isQuest = true;
+        getItemDataLight();
     } else if (preContent.includes("Keys")) {
-
+        isKey = true;
+        getItemDataLight();
     } else {
         throw "unknown item type";
-        return null;
     }
+    createItemString();
 }
 //flag variables if the item is an exception
 function checkForExceptions(){
@@ -223,8 +237,8 @@ function handleRelic() {
         return ""
     }
 }
-//create the final item info string for equipment
-function createItemStringEquip() {
+//create the final item info string
+function createItemString() {
     let itemInfo = null;
     if (noEquip) {
         itemInfo = "\"\"";
@@ -234,15 +248,27 @@ function createItemStringEquip() {
         itemInfo = ("\"=ds=#"+itemSlot+"#\"");
     } else if (noSlot) {
         itemInfo = ("\"=ds=#"+itemType+"#\"");
+    } else if (isBag) {
+        itemInfo = ("\"=ds=#e10#\"");
+    } else if (isMisc) {
+        // e27 is "Token", add more use cases when needed
+        itemInfo = ("\"=ds=#e27#\"");
+    } else if (isQuest) {
+        //m2, "This Item Begins a Quest"; m3, "Quest Item"
+        itemInfo = ("\"=ds=#m3#\"");
+    } else if (isKey) {
+        //e14, "Key"
+        itemInfo = ("\"=ds=#e14#\"");
     //normal items
     } else {
         itemInfo = ("\"=ds=#"+itemSlot+"#, #"+itemType+"#\"");
     }
-    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+", \""+itemDroprate+"%\" },");
-}
-//create the final item info string for bags
-function createItemStringBag() {
-    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", \"=ds=#e10#\", \""+itemDroprate+"%\" },");
+    if (itemDroprate == false) {
+        itemDroprate = "";
+    } else {
+        itemDroprate =  ", \""+itemDroprate+"%\"";
+    }
+    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+itemDroprate+"},");
 }
 //copy string to clipboard
 //function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
@@ -270,6 +296,13 @@ function createButton() {
     let doc = document.getElementsByClassName("text");
     doc[0].insertBefore(newA,null);
 }
+
+
+  if (window.history) {
+    window.addEventListener('hashchange', function(){
+    console.log('location changed!');
+    });
+  }
 
 getItemTooltip();
 getItemDroprate()
