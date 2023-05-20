@@ -242,9 +242,9 @@ function createItemString() {
     } else if (itemSlot == "s16") {
         itemInfo = handleRelic();
     } else if (noType) {
-        itemInfo = ("\"=ds=#" + itemSlot + "#\"");
+        itemInfo = ("\"=ds=#" + itemSlot + "#" + itemInfoBonus + "\"");
     } else if (noSlot) {
-        itemInfo = ("\"=ds=#" + itemType + "#\"");
+        itemInfo = ("\"=ds=#" + itemType + "#" + itemInfoBonus + "\"");
     } else if (isBag) {
         itemInfo = ("\"=ds=#e10#\"");
     } else if (isMisc) {
@@ -261,7 +261,7 @@ function createItemString() {
         itemInfo = ("\"=ds=#m31#\"");
     //normal items
     } else {
-        itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#"+itemInfoBonus+"\"");
+        itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#" + itemInfoBonus + "\"");
     }
     if (hasDroprate) {
         itemDroprate =  ", \""+itemDroprate+"%\"";
