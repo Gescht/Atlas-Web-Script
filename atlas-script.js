@@ -54,6 +54,7 @@ var noSlot          = false;
 var noType          = false;
 var noEquip         = false;
 var isBag           = false;
+var isTrade         = false;
 var isMisc          = false;
 var isQuest         = false;
 var isKey           = false;
@@ -69,6 +70,7 @@ var itemType        = null;
 var itemDroprate    = null;
 //tooltip
 var itemTooltip     = null;
+var hasDroprate     = null;
 
 /*  functions */
 //get the item tooltip info
@@ -76,10 +78,9 @@ function getItemTooltip(){ itemTooltip = document.getElementsByClassName("toolti
 //check the droprate
 function getItemDroprate(){
     //get the loot table
-    var hasDroprate     = false;
     try {
-        let allTables           = document.querySelectorAll("table");
-        let lootTable           = allTables[(allTables.length-1)];
+        let activeTabName       = document.getElementsByClassName("tabs")[0].getElementsByClassName("selected")[0].hash.slice(1);
+        let lootTable           = document.getElementById("tab-"+activeTabName).querySelectorAll("table")[0];
         let lootTableFirstRow   = lootTable.rows.item(0).cells;
         let lastColumnIndex     = lootTableFirstRow.length-1;
         let cellPercent         = lootTableFirstRow.item(lastColumnIndex).innerText;
@@ -87,16 +88,15 @@ function getItemDroprate(){
             hasDroprate = true;
             itemDroprate = lootTable.rows.item(1).cells.item(lastColumnIndex).innerText;
         } else {
-            itemDroprate = false;
+            hasDroprate = false;
         }
     } catch {
+        hasDroprate = false;
         throw("Couldn't detect a droprate")
     }
 }
 function allDataExists() {
     if (itemTooltip === undefined) {
-        return false
-    } else if (itemDroprate === null) {
         return false
     }
     return true
@@ -129,28 +129,17 @@ function convertItemSlotType(index, arrayItemSlotType) {
         return null;
     }
 }
-//debug print item values
-function consoleLog() {
-    console.log("Id: "+itemId);
-    console.log("Icon: "+itemIcon);
-    console.log("Quality: "+itemQuality);
-    console.log("Name: "+itemName);
-    console.log("Slot: "+itemSlot);
-    console.log("Type: "+itemType);
-    console.log("Droprate: "+itemDroprate);
-}
 //get the raw item data
 function getItemDataEquip() {
     let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
-    itemId              = document.URL.match(/(\d*)$/)[0];
-    itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
-    itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
-    itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
+
+    getItemDataLight();
+
     itemSlot            = convertItemSlotType(0,itemSlotType);
     itemType            = convertItemSlotType(1,itemSlotType);
 }
 function getItemDataLight() {
-    itemId              = document.URL.match(/(\d*)$/)[0];
+    itemId              = document.URL.match(/(\d+)/)[0];
     itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
     itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
     itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
@@ -170,7 +159,8 @@ function getItemTypeData(){
     }  else if (preContent.includes("Consumables")) {
 
     } else if (preContent.includes("Trade Goods")) {
-
+        isTrade = true;
+        getItemDataLight();
     } else if (preContent.includes("Projectiles")) {
 
     } else if (preContent.includes("Quivers")) {
@@ -245,9 +235,9 @@ function createItemString() {
     } else if (itemSlot == "s16") {
         itemInfo = handleRelic();
     } else if (noType) {
-        itemInfo = ("\"=ds=#"+itemSlot+"#\"");
+        itemInfo = ("\"=ds=#" + itemSlot + "#\"");
     } else if (noSlot) {
-        itemInfo = ("\"=ds=#"+itemType+"#\"");
+        itemInfo = ("\"=ds=#" + itemType + "#\"");
     } else if (isBag) {
         itemInfo = ("\"=ds=#e10#\"");
     } else if (isMisc) {
@@ -259,16 +249,19 @@ function createItemString() {
     } else if (isKey) {
         //e14, "Key"
         itemInfo = ("\"=ds=#e14#\"");
+    } else if (isTrade) {
+        //m31, "Reagent"
+        itemInfo = ("\"=ds=#m31#\"");
     //normal items
     } else {
-        itemInfo = ("\"=ds=#"+itemSlot+"#, #"+itemType+"#\"");
+        itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#\"");
     }
-    if (itemDroprate == false) {
-        itemDroprate = "";
-    } else {
+    if (hasDroprate) {
         itemDroprate =  ", \""+itemDroprate+"%\"";
+    } else {
+        itemDroprate = "";
     }
-    itemString = ("{ "+itemId+", \""+itemIcon+"\", \"=q"+itemQuality+"="+itemName+"\", "+itemInfo+itemDroprate+"},");
+    itemString = ("{ " + itemId+ ", \"" + itemIcon + "\", \"=q" + itemQuality + "=" + itemName + "\", " + itemInfo + itemDroprate + "},");
 }
 //copy string to clipboard
 //function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
@@ -296,19 +289,20 @@ function createButton() {
     let doc = document.getElementsByClassName("text");
     doc[0].insertBefore(newA,null);
 }
-
-
-  if (window.history) {
-    window.addEventListener('hashchange', function(){
-    console.log('location changed!');
-    });
-  }
-
-getItemTooltip();
-getItemDroprate()
-if (allDataExists()) {
-    getItemTypeData();
-    createButton();
-    document.getElementsByTagName("h2")[0].innerText = "See also - "+itemString;
-    //consoleLog();
+//all in one call for item handling
+function queryItemInfo() {
+    getItemTooltip();
+    getItemDroprate();
+    if (allDataExists()) {
+        getItemTypeData();
+        document.getElementsByTagName("h2")[0].innerText = "See also - "+itemString;
+    }
 }
+
+if (window.history) {
+    window.addEventListener('hashchange', function(){
+        queryItemInfo();
+    });
+}
+queryItemInfo();
+createButton();
