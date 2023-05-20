@@ -267,7 +267,7 @@ function createItemString() {
     } else {
         itemDroprate = "";
     }
-    itemString = ("{ " + itemId+ ", \"" + itemIcon + "\", \"=q" + itemQuality + "=" + itemName + "\", " + itemInfo + itemDroprate + "},");
+    itemString = ("{ " + itemId+ ", \"" + itemIcon + "\", \"=q" + itemQuality + "=" + itemName + "\", " + itemInfo + itemDroprate + " },");
 }
 //copy string to clipboard
 //function copyToClipboard(text) { window.prompt("Copy to clipboard: Ctrl+C, Enter", text);}
