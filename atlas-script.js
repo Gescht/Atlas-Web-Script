@@ -80,7 +80,7 @@ function getItemTooltip(){ itemTooltip = document.getElementsByClassName("toolti
 function getItemDroprate(){
     //get the loot table
     try {
-        let activeTabName       = document.getElementsByClassName("tabs")[0].getElementsByClassName("selected")[0].hash.slice(1);
+        let activeTabName       = document.getElementsByClassName("tabs")[0].getElementsByClassName("selected")[0].hash.slice(1).split(":")[0];
         let lootTable           = document.getElementById("tab-"+activeTabName).querySelectorAll("table")[0];
         let lootTableFirstRow   = lootTable.rows.item(0).cells;
         let lastColumnIndex     = lootTableFirstRow.length-1;
@@ -139,7 +139,6 @@ function getItemDataEquip() {
     itemSlot            = convertItemSlotType(0,itemSlotType);
     itemType            = convertItemSlotType(1,itemSlotType);
     hasRandomStats      = itemTooltip.innerHTML.includes("Random Bonus");
-    debugger;
 }
 function getItemDataLight() {
     itemId              = document.URL.match(/(\d+)/)[0];
