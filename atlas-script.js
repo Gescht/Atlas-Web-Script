@@ -58,6 +58,7 @@ var isTrade         = false;
 var isMisc          = false;
 var isQuest         = false;
 var isKey           = false;
+var hasRandomStats  = false;
 //final item string info (for atlas loot usage)
 var itemString      = null;
 //item data
@@ -137,6 +138,8 @@ function getItemDataEquip() {
 
     itemSlot            = convertItemSlotType(0,itemSlotType);
     itemType            = convertItemSlotType(1,itemSlotType);
+    hasRandomStats      = itemTooltip.innerHTML.includes("Random Bonus");
+    debugger;
 }
 function getItemDataLight() {
     itemId              = document.URL.match(/(\d+)/)[0];
@@ -229,6 +232,10 @@ function handleRelic() {
 }
 //create the final item info string
 function createItemString() {
+    let itemInfoBonus = "";
+    if (hasRandomStats) {
+        itemInfoBonus = " =q2=#e31#";
+    }
     let itemInfo = null;
     if (noEquip) {
         itemInfo = "\"\"";
@@ -254,7 +261,7 @@ function createItemString() {
         itemInfo = ("\"=ds=#m31#\"");
     //normal items
     } else {
-        itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#\"");
+        itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#"+itemInfoBonus+"\"");
     }
     if (hasDroprate) {
         itemDroprate =  ", \""+itemDroprate+"%\"";
