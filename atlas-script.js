@@ -48,6 +48,17 @@ const weaponType = {
     Idol:"Idol",
     Libram:"Libram"
     }
+const classes = {
+    Druid:"13=#c1",
+    Hunter:"14=#c2",
+    Mage:"10=#c3",
+    Paladin:"16=#c4",
+    Priest:"9=#c5",
+    Rogue:"12=#c6",
+    Shaman:"15=#c7",
+    Warlock:"11=#c8",
+    Warrior:"17=#c9"
+}
 /* variables */
 //exception case tracker
 var noSlot          = false;
@@ -55,6 +66,7 @@ var noType          = false;
 var noEquip         = false;
 var isBag           = false;
 var isTrade         = false;
+var isRecipe        = false;
 var isMisc          = false;
 var isQuest         = false;
 var isKey           = false;
@@ -131,6 +143,17 @@ function convertItemSlotType(index, arrayItemSlotType) {
     }
 }
 //get the raw item data
+function getItemDataClass() {
+    let tableChildren = itemTooltip.getElementsByTagName('td');
+    //we ignore the first one, because it usually contains several td
+    for (var i = 1; i < tableChildren.length; i++) {
+      let childInnerHtml = tableChildren[i].innerHTML;
+      if (childInnerHtml.includes("Classes: ")) {
+        return ("\"=q" + classes[childInnerHtml.match(/(?:Classes: )(\w+)/)[1]] + "#\"");
+      }
+      return "\"\"";
+    }
+}
 function getItemDataEquip() {
     let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
 
@@ -168,7 +191,8 @@ function getItemTypeData(){
     } else if (preContent.includes("Quivers")) {
 
     } else if (preContent.includes("Recipes")) {
-
+        isRecipe = true;
+        getItemDataLight();
     } else if (preContent.includes("Miscellaneous")) {
         isMisc = true;
         getItemDataLight();
@@ -246,6 +270,8 @@ function createItemString() {
         itemInfo = ("\"=ds=#" + itemType + "#" + itemInfoBonus + "\"");
     } else if (isBag) {
         itemInfo = ("\"=ds=#e10#\"");
+    } else if (isRecipe) {
+        itemInfo = getItemDataClass();
     } else if (isMisc) {
         // e27 is "Token", add more use cases when needed
         itemInfo = ("\"=ds=#e27#\"");
