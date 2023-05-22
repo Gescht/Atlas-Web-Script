@@ -1,22 +1,8 @@
-<td>
-    <table style="width: 100%;">
-        <tbody>
-        <tr>
-            <td><b class="q3">Manual: Intervene</b><br>Classes: Warrior<br>Requires Level 50<br></td>
-        </tr>
-        </tbody>
-    </table>
-    <table style="width: 100%;">
-        <tbody>
-        <tr>
-            <td><span class="q2">Use: <a href="?spell=47277" class="q2">Teaches Intervene.</a></span><br><span
-                    class="q">"Contains teachings on ways to prevent harm to far away allies."</span></td>
-        </tr>
-        </tbody>
-    </table>
-</td>
-
-<td><b class="q3">Manual: Intervene</b><br>Classes: Warrior<br>Requires Level 50<br></td>
-
-<td><span class="q2">Use: <a href="?spell=47277" class="q2">Teaches Intervene.</a></span><br><span
-        class="q">"Contains teachings on ways to prevent harm to far away allies."</span></td>
+<div id="main-precontents">
+    <div class="path"><span class="menuarrow"><a href="javascript:;"
+                                                 style="text-decoration: none; color: white; cursor: default;">Database</a></span><span
+            class="menuarrow"><a href="?items">Items</a></span><span class="menuarrow"><a
+            href="?items=9">Recipes</a></span><span class=""><a href="?items=9.4">Blacksmithing</a></span>
+        <div class="clear"></div>
+    </div>
+</div>

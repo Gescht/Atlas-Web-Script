@@ -59,6 +59,39 @@ const classes = {
     Warlock:"11=#c8",
     Warrior:"17=#c9"
 }
+const professions = {
+    Alchemy:"p1",
+    Blacksmithing:"p2",
+    Cooking:"p3",
+    Enchanting:"p4",
+    Engineering:"p5",
+    FirstAid:"p6",
+    Leatherworking:"p7",
+    Tailoring:"p8",
+    Dragonscale:"p9",
+    //https://database.turtle-wow.org/?item=15730
+    Tribal:"p10",
+    Elemental:"p11",
+    Lockpicking:"p13",
+    //https://database.turtle-wow.org/?item=12033
+    GnomishEngineering:"p14",
+    GoblinEngineering:"p15",
+    Survival:"p16"
+    //check first aid, engi special
+}
+const skillLevel = {
+    300:"m14",
+    295:"m15",
+    275:"m16",
+    265:"m17",
+    290:"m18",
+    285:"m20",
+    185:"m26",
+    160:"m27",
+    125:"m28",
+    200:"m29",
+    250:"m41"
+}
 /* variables */
 //exception case tracker
 var noSlot          = false;
@@ -68,6 +101,7 @@ var isBag           = false;
 var isTrade         = false;
 var isProjectile    = false;
 var isRecipe        = false;
+var isBook          = false;
 var isMisc          = false;
 var isQuest         = false;
 var isKey           = false;
@@ -150,11 +184,22 @@ function getItemDataClass() {
     for (var i = 1; i < tableChildren.length; i++) {
       let childInnerHtml = tableChildren[i].innerHTML;
       if (childInnerHtml.includes("Classes: ")) {
-        return ("\"=q" + classes[childInnerHtml.match(/(?:Classes: )(\w+)/)[1]] + "#\"");
+        return ("\"=q" + classes[childInnerHtml.match("(?:Classes: )(\\w+)")[1]] + "#\"");
       }
       return "\"\"";
     }
 }
+
+function getItemDataProfession() {
+    let itemProfInfo      = itemTooltip.querySelectorAll("table")[1].innerText.split("\n")[1];
+    let professionInfo    = "=ds=#" + professions[itemProfInfo.match("(?:Requires )((\\w| )+)(?: \\()")[1].replace(/ /g,"")] + "#";
+    try {
+        professionInfo =  professionInfo + " #" + skillLevel[itemProfInfo.match("(?:Requires \\w+ \\()(\\d+)")[1]] + "#";
+    } catch {
+    }
+    return professionInfo;
+}
+
 function getItemDataProjectile() {
     let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t")[1];
     if (itemTooltip.querySelectorAll("table")[2].innerText.split("\t")[1] == "Arrow") {
@@ -175,8 +220,8 @@ function getItemDataEquip() {
     hasRandomStats      = itemTooltip.innerHTML.includes("Random Bonus");
 }
 function getItemDataLight() {
-    itemId              = document.URL.match(/(\d+)/)[0];
-    itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match(/(?:large\/)(.*)(?:.png)/)[1];
+    itemId              = document.URL.match("(\\d+)")[0];
+    itemIcon            = document.getElementsByClassName("iconlarge")[0].style.backgroundImage.toString().match("(?:large\\/)(.*)(?:.png)")[1];
     itemQuality         = itemTooltip.outerHTML.match("(?:<b class=\"q)(\\d)")[1];
     itemName            = itemTooltip.querySelectorAll("table")[1].rows.item(0).cells.item(0).firstChild.innerText;
 }
@@ -203,6 +248,9 @@ function getItemTypeData(){
     } else if (preContent.includes("Quivers")) {
 
     } else if (preContent.includes("Recipes")) {
+        if (preContent.includes("Books")) {
+            isBook = true;
+        }
         isRecipe = true;
         getItemDataLight();
     } else if (preContent.includes("Miscellaneous")) {
@@ -287,8 +335,13 @@ function createItemString() {
         itemInfo = ("\"=ds=#m31#\"");
     } else if (isProjectile) {
         itemInfo = ("\"=ds=#e" + getItemDataProjectile() + "#\"");
-    } else if (isRecipe) {
+    } else if (isBook) {
         itemInfo = getItemDataClass();
+        //https://database.turtle-wow.org/?item=60775
+    } else if (isRecipe) {
+        itemInfo = getItemDataProfession();
+        //https://database.turtle-wow.org/?item=11813
+        //https://database.turtle-wow.org/?item=6454
     } else if (isMisc) {
         // e27 is "Token", add more use cases when needed
         itemInfo = ("\"=ds=#e27#\"");
