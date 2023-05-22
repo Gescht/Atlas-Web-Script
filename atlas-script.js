@@ -66,6 +66,7 @@ var noType          = false;
 var noEquip         = false;
 var isBag           = false;
 var isTrade         = false;
+var isProjectile    = false;
 var isRecipe        = false;
 var isMisc          = false;
 var isQuest         = false;
@@ -154,6 +155,16 @@ function getItemDataClass() {
       return "\"\"";
     }
 }
+function getItemDataProjectile() {
+    let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t")[1];
+    if (itemTooltip.querySelectorAll("table")[2].innerText.split("\t")[1] == "Arrow") {
+        //e5 - Arrow
+        return "5";
+    } else {
+        //e6 - Bullet
+        return "6";
+    }
+}
 function getItemDataEquip() {
     let itemSlotType    = itemTooltip.querySelectorAll("table")[2].innerText.split("\t");
 
@@ -187,7 +198,8 @@ function getItemTypeData(){
         isTrade = true;
         getItemDataLight();
     } else if (preContent.includes("Projectiles")) {
-
+        isProjectile = true;
+        getItemDataLight();
     } else if (preContent.includes("Quivers")) {
 
     } else if (preContent.includes("Recipes")) {
@@ -270,6 +282,11 @@ function createItemString() {
         itemInfo = ("\"=ds=#" + itemType + "#" + itemInfoBonus + "\"");
     } else if (isBag) {
         itemInfo = ("\"=ds=#e10#\"");
+    } else if (isTrade) {
+        //m31, "Reagent"
+        itemInfo = ("\"=ds=#m31#\"");
+    } else if (isProjectile) {
+        itemInfo = ("\"=ds=#e" + getItemDataProjectile() + "#\"");
     } else if (isRecipe) {
         itemInfo = getItemDataClass();
     } else if (isMisc) {
@@ -281,9 +298,6 @@ function createItemString() {
     } else if (isKey) {
         //e14, "Key"
         itemInfo = ("\"=ds=#e14#\"");
-    } else if (isTrade) {
-        //m31, "Reagent"
-        itemInfo = ("\"=ds=#m31#\"");
     //normal items
     } else {
         itemInfo = ("\"=ds=#" + itemSlot + "#, #" + itemType + "#" + itemInfoBonus + "\"");
