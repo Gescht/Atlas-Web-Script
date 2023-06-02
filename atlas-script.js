@@ -1,3 +1,10 @@
+/*todo
+
+https://database.turtle-wow.org/?item=22305
+items with class restrictions
+
+*/
+
 /* Constants*/
 const armorSlot = {
     Head:"s1",
@@ -106,7 +113,7 @@ var isMisc          = false;
 var isQuest         = false;
 var isKey           = false;
 var hasRandomStats  = false;
-//final item string info (for atlas loot usage)
+//final item string info (for final atlas loot usage)
 var itemString      = null;
 //item data
 var itemId          = null;
@@ -238,7 +245,7 @@ function getItemTypeData(){
         isBag = true;
         getItemDataLight();
     }  else if (preContent.includes("Consumables")) {
-
+        getItemDataLight();
     } else if (preContent.includes("Trade Goods")) {
         isTrade = true;
         getItemDataLight();
