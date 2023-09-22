@@ -1,8 +1,184 @@
-<div id="main-precontents">
-    <div class="path"><span class="menuarrow"><a href="javascript:;"
-                                                 style="text-decoration: none; color: white; cursor: default;">Database</a></span><span
-            class="menuarrow"><a href="?items">Items</a></span><span class="menuarrow"><a
-            href="?items=9">Recipes</a></span><span class=""><a href="?items=9.4">Blacksmithing</a></span>
-        <div class="clear"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icehorn - NPC - Wotlk Database</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="/cdn-cgi/apps/head/V0hyAqQ50lIm0WhiyJY1vLUuMqU.js"></script><link rel="SHORTCUT ICON" href="https://wowgaming.altervista.org/aowow/static/images/logos/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="https://wowgaming.altervista.org/aowow/static/download/searchplugins/aowow.xml" title="Aowow" />
+    <link rel="stylesheet" type="text/css" href="https://wowgaming.altervista.org/aowow/static/css/basic.css?33" />
+    <link rel="stylesheet" type="text/css" href="https://wowgaming.altervista.org/aowow/static/css/global.css?33" />
+    <link rel="stylesheet" type="text/css" href="https://wowgaming.altervista.org/aowow/static/css/aowow.css?33" />
+    <link rel="stylesheet" type="text/css" href="https://wowgaming.altervista.org/aowow/static/css/locale_enus.css?33" />
+    <link rel="stylesheet" type="text/css" href="https://wowgaming.altervista.org/aowow/static/css/Profiler.css?33" />
+    <script type="text/javascript">
+        var g_serverTime = new Date('2023/09/22 06:29:24');
+        var g_staticUrl = "https://wowgaming.altervista.org/aowow/static";
+        var g_host = "https://wowgaming.altervista.org/aowow";
+    </script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/basic.js?33" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/widgets/power.js?lang=us" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/locale_enus.js?33" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/global.js?33" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/locale.js?33" type="text/javascript"></script>
+    <script src="https://wowgaming.altervista.org/aowow/static/js/Markup.js?33" type="text/javascript"></script>
+    <script type="text/javascript" src="https://wowgaming.altervista.org/aowow/static/js/swfobject.js?33"></script>
+    <script type="text/javascript" src="?data=zones&locale=0&t=UyppvFQv2WlKCLzeVjkJ8S9BPuGxf8RbN7VAgttb&33"></script>
+    <script type="text/javascript">
+        var g_user = {"id":0,"name":"","roles":0,"permissions":0,"cookies":[]};
+    </script>
+</head>
+<body>
+<div id="layers"></div>
+<div class="layout nosidebar" id="layout">
+    <div class="layout-inner" id="layout-inner">
+        <div class="header" id="header">
+            <div id="header-logo">
+                <a class="header-logo" href="."></a>
+                <h1>Icehorn</h1>
+            </div>
+        </div>
+        <div id="wrapper" class="wrapper">
+            <div class="toplinks linklist"><a href="?account=signin">Log in / Register</a>|<a href="#" id="toplinks-feedback" class="icon-email">Feedback</a>|<a href="javascript:;" id="toplinks-language">Language</a>
+            </div>
+            <div class="toptabs" id="toptabs"></div>
+            <div class="topbar" id="topbar">
+                <div class="topbar-search"><form action="."><a href="javascript:;"></a><input name="search" size="35" id="livesearch-generic" value /></form></div>
+                <div class="topbar-browse" id="topbar-browse"></div>
+                <div class="topbar-buttons" id="topbar-buttons"></div>
+            </div>
+            <script type="text/javascript">
+            var _ = g_spells; _[49966]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49967]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49968]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49969]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49970]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49971]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49972]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49973]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[49974]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[52475]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[52476]={"icon":"ability_druid_bash","name_enus":"Smack"}; _[56634]={"icon":"ability_hunter_pet_crab","name_enus":"Tamed Pet Passive (DND)"}; _[57386]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57389]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57390]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57391]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57392]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57393]={"icon":"spell_shaman_astralshift","name_enus":"Stampede"}; _[57468]={"icon":"spell_nature_earthquake","name_enus":"Romp"};
+            var _ = g_items; _[44667]={"quality":3,"icon":"inv_helmet_125","name_enus":"Mammoth-Hair Crown"}; _[44663]={"quality":1,"icon":"inv_misc_bag_15","name_enus":"Abandoned Adventurer's Satchel"}; _[44128]={"quality":3,"icon":"inv_misc_pelt_14","name_enus":"Arctic Fur"}; _[33568]={"quality":1,"icon":"inv_misc_leatherscrap_15","name_enus":"Borean Leather"};
+            var _ = g_skills; _[6]={"icon":"spell_frost_frostbolt02","name_enus":"Frost"}; _[8]={"icon":"spell_fire_firebolt02","name_enus":"Fire"}; _[26]={"icon":"ability_rogue_eviscerate","name_enus":"Arms"}; _[38]={"icon":"ability_backstab","name_enus":"Combat"}; _[39]={"icon":"ability_stealth","name_enus":"Subtlety"}; _[43]={"icon":"ability_meleedamage","name_enus":"Swords"}; _[44]={"icon":"inv_axe_01","name_enus":"Axes"}; _[45]={"icon":"inv_weapon_bow_05","name_enus":"Bows"}; _[46]={"icon":"inv_weapon_rifle_01","name_enus":"Guns"}; _[50]={"icon":"ability_hunter_beasttaming","name_enus":"Beast Mastery"}; _[51]={"icon":"ability_hunter_swiftstrike","name_enus":"Survival"}; _[54]={"icon":"inv_mace_01","name_enus":"Maces"}; _[55]={"icon":"ability_meleedamage","name_enus":"Two-Handed Swords"}; _[56]={"icon":"spell_holy_holybolt","name_enus":"Holy"}; _[78]={"icon":"spell_shadow_shadowwordpain","name_enus":"Shadow Magic"}; _[95]={"icon":"ability_racial_shadowmeld","name_enus":"Defense"}; _[98]={"icon":"trade_engineering","name_enus":"Language: Common"}; _[101]={"icon":"trade_engineering","name_enus":"Dwarven Racial"}; _[109]={"icon":"trade_engineering","name_enus":"Language: Orcish"}; _[111]={"icon":"trade_engineering","name_enus":"Language: Dwarven"}; _[113]={"icon":"trade_engineering","name_enus":"Language: Darnassian"}; _[115]={"icon":"trade_engineering","name_enus":"Language: Taurahe"}; _[118]={"icon":"ability_dualwield","name_enus":"Dual Wield"}; _[124]={"icon":"trade_engineering","name_enus":"Tauren Racial"}; _[125]={"icon":"trade_engineering","name_enus":"Orc Racial"}; _[126]={"icon":"trade_engineering","name_enus":"Night Elf Racial"}; _[129]={"icon":"spell_holy_sealofsacrifice","name_enus":"First Aid"}; _[134]={"icon":"ability_racial_bearform","name_enus":"Feral Combat"}; _[136]={"icon":"inv_staff_08","name_enus":"Staves"}; _[137]={"icon":"trade_engineering","name_enus":"Language: Thalassian"}; _[138]={"icon":"trade_engineering","name_enus":"Language: Draconic"}; _[139]={"icon":"trade_engineering","name_enus":"Language: Demon Tongue"}; _[140]={"icon":"trade_engineering","name_enus":"Language: Titan"}; _[141]={"icon":"trade_engineering","name_enus":"Language: Old Tongue"}; _[142]={"icon":"trade_engineering","name_enus":"Survival"}; _[148]={"icon":"trade_engineering","name_enus":"Horse Riding"}; _[149]={"icon":"trade_engineering","name_enus":"Wolf Riding"}; _[150]={"icon":"trade_engineering","name_enus":"Tiger Riding"}; _[152]={"icon":"trade_engineering","name_enus":"Ram Riding"}; _[155]={"icon":"trade_engineering","name_enus":"Swimming"}; _[160]={"icon":"inv_mace_04","name_enus":"Two-Handed Maces"}; _[162]={"icon":"ability_golemthunderclap","name_enus":"Unarmed"}; _[163]={"icon":"ability_marksmanship","name_enus":"Marksmanship"}; _[164]={"icon":"trade_blacksmithing","name_enus":"Blacksmithing"}; _[165]={"icon":"trade_leatherworking","name_enus":"Leatherworking"}; _[171]={"icon":"trade_alchemy","name_enus":"Alchemy"}; _[172]={"icon":"inv_axe_04","name_enus":"Two-Handed Axes"}; _[173]={"icon":"ability_steelmelee","name_enus":"Daggers"}; _[176]={"icon":"inv_throwingknife_02","name_enus":"Thrown"}; _[182]={"icon":"trade_herbalism","name_enus":"Herbalism"}; _[183]={"icon":"trade_engineering","name_enus":"GENERIC (DND)"}; _[184]={"icon":"spell_holy_auraoflight","name_enus":"Retribution"}; _[185]={"icon":"inv_misc_food_15","name_enus":"Cooking"}; _[186]={"icon":"inv_pick_02","name_enus":"Mining"}; _[188]={"icon":"trade_engineering","name_enus":"Pet - Imp"}; _[189]={"icon":"trade_engineering","name_enus":"Pet - Felhunter"}; _[197]={"icon":"trade_tailoring","name_enus":"Tailoring"}; _[202]={"icon":"trade_engineering","name_enus":"Engineering"}; _[203]={"icon":"trade_engineering","name_enus":"Pet - Spider"}; _[204]={"icon":"trade_engineering","name_enus":"Pet - Voidwalker"}; _[205]={"icon":"trade_engineering","name_enus":"Pet - Succubus"}; _[206]={"icon":"trade_engineering","name_enus":"Pet - Infernal"}; _[207]={"icon":"trade_engineering","name_enus":"Pet - Doomguard"}; _[208]={"icon":"trade_engineering","name_enus":"Pet - Wolf"}; _[209]={"icon":"trade_engineering","name_enus":"Pet - Cat"}; _[210]={"icon":"trade_engineering","name_enus":"Pet - Bear"}; _[211]={"icon":"trade_engineering","name_enus":"Pet - Boar"}; _[212]={"icon":"trade_engineering","name_enus":"Pet - Crocolisk"}; _[213]={"icon":"trade_engineering","name_enus":"Pet - Carrion Bird"}; _[214]={"icon":"trade_engineering","name_enus":"Pet - Crab"}; _[215]={"icon":"trade_engineering","name_enus":"Pet - Gorilla"}; _[217]={"icon":"trade_engineering","name_enus":"Pet - Raptor"}; _[218]={"icon":"trade_engineering","name_enus":"Pet - Tallstrider"}; _[220]={"icon":"trade_engineering","name_enus":"Racial - Undead"}; _[226]={"icon":"inv_weapon_crossbow_01","name_enus":"Crossbows"}; _[228]={"icon":"ability_shootwand","name_enus":"Wands"}; _[229]={"icon":"inv_spear_06","name_enus":"Polearms"}; _[236]={"icon":"trade_engineering","name_enus":"Pet - Scorpid"}; _[237]={"icon":"spell_holy_magicalsentry","name_enus":"Arcane"}; _[251]={"icon":"trade_engineering","name_enus":"Pet - Turtle"}; _[253]={"icon":"ability_rogue_eviscerate","name_enus":"Assassination"}; _[256]={"icon":"ability_warrior_innerrage","name_enus":"Fury"}; _[257]={"icon":"ability_warrior_defensivestance","name_enus":"Protection"}; _[267]={"icon":"spell_holy_devotionaura","name_enus":"Protection"}; _[270]={"icon":"trade_engineering","name_enus":"Pet - Generic Hunter"}; _[293]={"icon":"trade_engineering","name_enus":"Plate Mail"}; _[313]={"icon":"trade_engineering","name_enus":"Language: Gnomish"}; _[315]={"icon":"trade_engineering","name_enus":"Language: Troll"}; _[333]={"icon":"trade_engraving","name_enus":"Enchanting"}; _[354]={"icon":"spell_shadow_metamorphosis","name_enus":"Demonology"}; _[355]={"icon":"spell_shadow_deathcoil","name_enus":"Affliction"}; _[356]={"icon":"trade_fishing","name_enus":"Fishing"}; _[373]={"icon":"spell_nature_lightningshield","name_enus":"Enhancement"}; _[374]={"icon":"spell_nature_magicimmunity","name_enus":"Restoration"}; _[375]={"icon":"spell_nature_lightning","name_enus":"Elemental Combat"}; _[393]={"icon":"inv_misc_pelt_wolf_01","name_enus":"Skinning"}; _[413]={"icon":"trade_engineering","name_enus":"Mail"}; _[414]={"icon":"trade_engineering","name_enus":"Leather"}; _[415]={"icon":"trade_engineering","name_enus":"Cloth"}; _[433]={"icon":"trade_engineering","name_enus":"Shield"}; _[473]={"icon":"trade_engineering","name_enus":"Fist Weapons"}; _[533]={"icon":"trade_engineering","name_enus":"Raptor Riding"}; _[553]={"icon":"trade_engineering","name_enus":"Mechanostrider Piloting"}; _[554]={"icon":"trade_engineering","name_enus":"Undead Horsemanship"}; _[573]={"icon":"spell_nature_healingtouch","name_enus":"Restoration"}; _[574]={"icon":"spell_nature_starfall","name_enus":"Balance"}; _[593]={"icon":"spell_shadow_rainoffire","name_enus":"Destruction"}; _[594]={"icon":"spell_holy_holybolt","name_enus":"Holy"}; _[613]={"icon":"spell_holy_wordfortitude","name_enus":"Discipline"}; _[633]={"icon":"inv_misc_key_03","name_enus":"Lockpicking"}; _[653]={"icon":"trade_engineering","name_enus":"Pet - Bat"}; _[654]={"icon":"trade_engineering","name_enus":"Pet - Hyena"}; _[655]={"icon":"trade_engineering","name_enus":"Pet - Bird of Prey"}; _[656]={"icon":"trade_engineering","name_enus":"Pet - Wind Serpent"}; _[673]={"icon":"trade_engineering","name_enus":"Language: Gutterspeak"}; _[713]={"icon":"spell_magic_polymorphpig","name_enus":"Kodo Riding"}; _[733]={"icon":"inv_misc_questionmark","name_enus":"Racial - Troll"}; _[753]={"icon":"inv_misc_questionmark","name_enus":"Racial - Gnome"}; _[754]={"icon":"inv_misc_questionmark","name_enus":"Racial - Human"}; _[755]={"icon":"inv_misc_gem_01","name_enus":"Jewelcrafting"}; _[756]={"icon":"inv_misc_questionmark","name_enus":"Blood Elf Racial"}; _[758]={"icon":"inv_misc_questionmark","name_enus":"Pet - Event - Remote Control"}; _[759]={"icon":"inv_misc_questionmark","name_enus":"Language: Draenei"}; _[760]={"icon":"inv_misc_questionmark","name_enus":"Draenei Racial"}; _[761]={"icon":"inv_misc_questionmark","name_enus":"Pet - Felguard"}; _[762]={"icon":"ability_hunter_beasttaming","name_enus":"Riding"}; _[763]={"icon":"ability_hunter_eagleeye","name_enus":"Pet - Dragonhawk"}; _[764]={"icon":"ability_hunter_pet_bat","name_enus":"Pet - Nether Ray"}; _[765]={"icon":"inv_mushroom_02","name_enus":"Pet - Sporebat"}; _[766]={"icon":"spell_arcane_arcane04","name_enus":"Pet - Warp Stalker"}; _[767]={"icon":"ability_hunter_pet_scorpid","name_enus":"Pet - Ravager"}; _[768]={"icon":"inv_waepon_bow_zulgrub_d_01","name_enus":"Pet - Serpent"}; _[769]={"icon":"mail_gmicon","name_enus":"Internal"}; _[770]={"icon":"spell_deathknight_bloodpresence","name_enus":"Blood"}; _[771]={"icon":"spell_deathknight_frostpresence","name_enus":"Frost"}; _[772]={"icon":"spell_deathknight_unholypresence","name_enus":"Unholy"}; _[773]={"icon":"inv_inscription_tradeskill01","name_enus":"Inscription"}; _[775]={"icon":"inv_misc_questionmark","name_enus":"Pet - Moth"}; _[776]={"icon":"spell_deathknight_frozenruneweapon","name_enus":"Runeforging"}; _[777]={"icon":"ability_hunter_catlikereflexes","name_enus":"Mounts"}; _[778]={"icon":"inv_misc_questionmark","name_enus":"Companions"}; _[780]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Chimaera"}; _[781]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Devlisaur"}; _[782]={"icon":"spell_shadow_animatedead","name_enus":"Pet - Ghoul"}; _[783]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Silithid"}; _[784]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Worm"}; _[785]={"icon":"inv_misc_questionmark","name_enus":"Pet - Wasp"}; _[786]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Rhino"}; _[787]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Core Hound"}; _[788]={"icon":"inv_misc_questionmark","name_enus":"Pet - Exotic Spirit Beast"};
+            var _ = g_achievements; _[2256]={"icon":"achievement_zone_stormpeaks_03","name_enus":"Northern Exposure"};
+            var _ = g_sounds; _[771]={"type":10,"files":[{"id":720,"title":"KodoBeastAggroA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAggroA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/720"}],"name_enus":"KodoBeastAggro"}; _[772]={"type":10,"files":[{"id":721,"title":"KodoBeastAttackA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/721"},{"id":722,"title":"KodoBeastAttackB","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackB.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/722"},{"id":723,"title":"KodoBeastAttackC","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackC.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/723"}],"name_enus":"KodoBeastAttack"}; _[773]={"type":10,"files":[{"id":724,"title":"KodoBeastWoundA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/724"},{"id":725,"title":"KodoBeastWoundB","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundB.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/725"},{"id":726,"title":"KodoBeastWoundC","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundC.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/726"}],"name_enus":"KodoBeastWound"}; _[774]={"type":10,"files":[{"id":727,"title":"KodoBeastWoundCriticalA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundCriticalA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/727"}],"name_enus":"KodoBeastWoundCrit"}; _[775]={"type":10,"files":[{"id":728,"title":"KodoBeastDeathA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastDeathA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/728"}],"name_enus":"KodoBeastDeath"};
+            var _ = g_factions; _[14]={"name_enus":"Monster"};
+        </script>
+            <div class="main" id="main">
+                <div class="main-precontents" id="main-precontents"></div>
+                <div class="main-contents" id="main-contents">
+                    <script type="text/javascript">//<![CDATA[
+                var lv_comments = [];
+                var lv_screenshots = [];
+                var lv_videos = [];
+                var g_pageInfo = {"type":1,"typeId":32361,"name":"Icehorn"};
+                PageTemplate.set({"pageName":"npc","activeTab":0,"breadcrumb":[0,4,1,43]});
+                PageTemplate.init();
+            //]]></script>
+                    <table class="infobox">
+                        <tr><th id="infobox-quick-facts">Quick Facts</th></tr>
+                        <tr><td>
+                            <div class="infobox-spacer"></div>
+                            <div id="infobox-contents0"></div>
+                            <script type="text/javascript">
+                Markup.printHtml("[ul][li]Level: 71[/li][li]Classification: Rare[/li][li]React: [color=q10]A[/color] [color=q10]H[/color][/li][li]Faction: [faction=14][/li][li]Tameable ([url=pet=43]Rhino[/url])[/li][li]Stats: [ul][li]Health: 13,937[/li][li][/li][li]Armor: 7,018[/li][li][/li][li]Melee: 299 - 426[/li][li]Ranged: 262 - 389[/li][/ul][/li][/ul]", "infobox-contents0", { allow: Markup.CLASS_STAFF, dbpage: true });
+            </script>
+                        </td></tr>
+                        <tr><th id="infobox-screenshots">Screenshots</th></tr>
+                        <tr><td><div class="infobox-spacer"></div><div id="infobox-sticky-ss"></div></td></tr>
+                        <script type="text/javascript">ss_appendSticky()</script>
+                    </table>
+                    <div class="text">
+                        <a href="http://www.wowhead.com/npc=32361" rel="np" class="button-red"><em><b><i>Wowhead</i></b><span>Wowhead</span></em></a><a href="javascript:;" id="open-links-button" class="button-red" onclick="this.blur(); Links.show({'type':1,'typeId':32361});"><em><b><i>Links</i></b><span>Links</span></em></a><a href="javascript:;" id="view3D-button" class="button-red" onclick="this.blur(); ModelViewer.show({'type':1,'typeId':32361,'displayId':27006})"><em><b><i>View in 3D</i></b><span>View in 3D</span></em></a>
+                        <h1>Icehorn</h1>
+                        <div>This NPC can be found in <span id="mapper-zone-generic"><a href="javascript:;" onclick="myMapper.update({zone: 3537}); g_setSelectedLink(this, 'mapper'); return false" onmousedown="return false">Borean Tundra</a>&nbsp;(3).</span></div>
+                        <div id="mapper-generic"></div>
+                        <div style="clear: left"></div>
+                        <script type="text/javascript">//<![CDATA[
+                var g_mapperData = {"3537":[{"coords":[[85.6,34.7,{"tooltip":{"Icehorn":{"info":{"1":"<span class=\"q0\">Respawn in: 8&nbsp;hours<\/span>"}}}}],[85.4,46,{"tooltip":{"Icehorn":{"info":{"1":"<span class=\"q0\">Respawn in: 8&nbsp;hours<\/span>"}}}}],[80.6,46.2,{"tooltip":{"Icehorn":{"info":{"1":"<span class=\"q0\">Respawn in: 8&nbsp;hours<\/span>"}}}}]],"count":3}]};
+                var myMapper = new Mapper({"parent":"mapper-generic"});
+                $WH.gE($WH.ge('mapper-zone-generic'), 'a')[0].onclick();
+            //]]></script>
+                        <div id="text-generic" class="left"></div>
+                        <script type="text/javascript">//<![CDATA[
+        Markup.printHtml("[style]#text-generic .grid { clear:left; } #text-generic .tabbed-contents { padding:0px; clear:left; }[/style][pad][h3][toggler id=sai]SmartAI[/toggler][/h3][div id=sai clear=left][table class=grid width=940px][tr][td header width=16px]#[/td][td header width=350px]Event[/td][td header ]Action[/td][/tr][tr][td]0[/td][td][tooltip name=e-CLsWUHsK][b class=q1]EventType 0[/b][br][table][tr][td]PhaseMask[/td][td=header]0x0001[/td][/tr][tr][td]Chance[/td][td=header]100%[/td][/tr][tr][td]Flags[/td][td=header]0x0000[/td][/tr][tr][td]Param1[/td][td=header]4500[/td][/tr][tr][td]Param2[/td][td=header]6750[/td][/tr][tr][td]Param3[/td][td=header]6750[/td][/tr][tr][td]Param4[/td][td=header]9750[/td][/tr][tr][td]Param5[/td][td=header]0[/td][/tr][/table][/tooltip][span tooltip=e-CLsWUHsK]When in combat, After 4.5&nbsp;sec &ndash; 6.75&nbsp;sec[/span][div float=right margin=0px][i][small class=q0]Repeat every 6.75&nbsp;sec &ndash; 9.75&nbsp;sec[/small][/i][/div][/td][td][tooltip name=a-CLsWUHsK][b class=q1]ActionType 11[/b][br][table][tr][td]Param1[/td][td=header]57468[/td][/tr][tr][td]Param2[/td][td=header]0[/td][/tr][tr][td]Param3[/td][td=header]0[/td][/tr][tr][td]Param4[/td][td=header]0[/td][/tr][tr][td]Param5[/td][td=header]0[/td][/tr][tr][td]Param6[/td][td=header]0[/td][/tr][/table][/tooltip][span tooltip=a-CLsWUHsK]Cast [spell=57468] at [/span][tooltip name=t-CLsWUHsK][b class=q1]TargetType 1[/b][br][table][tr][td]Param1[/td][td=header]0[/td][/tr][tr][td]Param2[/td][td=header]0[/td][/tr][tr][td]Param3[/td][td=header]0[/td][/tr][tr][td]Param4[/td][td=header]0[/td][/tr][tr][td]X[/td][td=header]0.00[/td][/tr][tr][td]Y[/td][td=header]0.00[/td][/tr][tr][td]Z[/td][td=header]0.00[/td][/tr][tr][td]O[/td][td=header]0.00[/td][/tr][/table][/tooltip][span class=tip tooltip=t-CLsWUHsK]self[/span][span tooltip=a-CLsWUHsK].[/span][/td][/tr][/table][/div]", "text-generic", {
+            allow: Markup.CLASS_ADMIN,
+            dbpage: true
+        });
+    //]]></script>
+                        <div class="pad2"></div>
+                        <h2 class="clear">Related</h2>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="tabs-generic"></div>
+                    <div id="lv-generic" class="listview"></div>
+                    <script type="text/javascript">//<![CDATA[
+                var tabsRelated = new Tabs({parent: $WH.ge('tabs-generic'), trackable: 'Npc'});
+new Listview({"template":"spell","id":"abilities","parent":"lv-generic","data":[{"id":57468,"name":"@Romp","icon":"spell_nature_earthquake","level":0,"school":1,"cat":-8,"trainingcost":0,"skill":[],"reagents":[],"source":[]}],"name":LANG.tab_abilities,"tabs":tabsRelated});
+new Listview({"template":"spell","id":"controlled-abilities","parent":"lv-generic","data":[{"id":49966,"name":"@Smack","icon":"ability_druid_bash","level":1,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 1"},{"id":49967,"name":"@Smack","icon":"ability_druid_bash","level":8,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 2"},{"id":49968,"name":"@Smack","icon":"ability_druid_bash","level":16,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 3"},{"id":49969,"name":"@Smack","icon":"ability_druid_bash","level":24,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 4"},{"id":49970,"name":"@Smack","icon":"ability_druid_bash","level":32,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 5"},{"id":49971,"name":"@Smack","icon":"ability_druid_bash","level":40,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 6"},{"id":49972,"name":"@Smack","icon":"ability_druid_bash","level":48,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 7"},{"id":49973,"name":"@Smack","icon":"ability_druid_bash","level":56,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 8"},{"id":49974,"name":"@Smack","icon":"ability_druid_bash","level":64,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 9"},{"id":52475,"name":"@Smack","icon":"ability_druid_bash","level":72,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 10"},{"id":52476,"name":"@Smack","icon":"ability_druid_bash","level":80,"school":1,"cat":-3,"trainingcost":0,"skill":[215,765,775,786,-1],"reagents":[],"source":[],"rank":"Rank 11"},{"id":56634,"name":"@Tamed Pet Passive (DND)","icon":"ability_hunter_pet_crab","level":0,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[]},{"id":57386,"name":"@Stampede","icon":"spell_shaman_astralshift","level":1,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 1"},{"id":57389,"name":"@Stampede","icon":"spell_shaman_astralshift","level":16,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 2"},{"id":57390,"name":"@Stampede","icon":"spell_shaman_astralshift","level":32,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 3"},{"id":57391,"name":"@Stampede","icon":"spell_shaman_astralshift","level":48,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 4"},{"id":57392,"name":"@Stampede","icon":"spell_shaman_astralshift","level":64,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 5"},{"id":57393,"name":"@Stampede","icon":"spell_shaman_astralshift","level":80,"school":1,"cat":-3,"trainingcost":0,"skill":[786],"reagents":[],"source":[],"rank":"Rank 6"},{"id":57468,"name":"@Romp","icon":"spell_nature_earthquake","level":0,"school":1,"cat":-8,"trainingcost":0,"skill":[],"reagents":[],"source":[]}],"name":LANG.tab_controlledabilities,"tabs":tabsRelated});
+new Listview({"template":"item","id":"drops","parent":"lv-generic","data":[{"id":44663,"name":"6Abandoned Adventurer's Satchel","icon":"inv_misc_bag_15","classs":15,"subclass":0,"side":3,"level":1,"displayid":56915,"source":[2],"percent":100,"group":0,"quest":0,"count":1,"mode":1,"stack":[1,1]},{"id":44667,"name":"4Mammoth-Hair Crown","icon":"inv_helmet_125","classs":4,"subclass":1,"side":3,"slot":1,"slotbak":1,"level":159,"reqlevel":70,"displayid":56924,"armor":196,"dura":50,"gearscore":88.3333,"source":[2],"sourcemore":[{"n":"Icehorn","t":1,"ti":32361}],"percent":100,"group":0,"quest":0,"count":1,"mode":1,"stack":[1,1]}],"name":LANG.tab_drops,"extraCols":[Listview.extraCols.percent],"sort":["-percent","name"],"tabs":tabsRelated});
+new Listview({"template":"item","id":"skinning","parent":"lv-generic","data":[{"id":33568,"name":"6Borean Leather","icon":"inv_misc_leatherscrap_15","classs":7,"subclass":6,"side":3,"level":70,"displayid":50523,"source":[1,2,5,23],"percent":99,"group":1,"quest":0,"count":1,"mode":1,"stack":[1,1]},{"id":44128,"name":"4Arctic Fur","icon":"inv_misc_pelt_14","classs":7,"subclass":6,"side":3,"level":75,"displayid":55780,"source":[2,5,23],"percent":1,"group":1,"quest":0,"count":1,"mode":1,"stack":[1,1]}],"name":LANG.tab_skinning,"extraCols":[Listview.extraCols.percent],"sort":["-percent","name"],"note":"<b>Difficulty: <span class=\"r1\">355<\/span> <span class=\"r2\">380<\/span> <span class=\"r3\">405<\/span><\/b>","hiddenCols":["side","slot","reqlevel"],"tabs":tabsRelated});
+new Listview({"template":"achievement","id":"criteria-of","parent":"lv-generic","data":[{"id":2256,"name":"Northern Exposure","description":"Kill one of the extremely rare and hard to find Northrend creatures listed below.","points":10,"side":3,"category":14780,"parentcat":97}],"name":LANG.tab_criteriaof,"tabs":tabsRelated});
+new Listview({"template":"sound","id":"sounds","parent":"lv-generic","data":[{"id":771,"type":10,"name":"KodoBeastAggro","files":[{"id":720,"title":"KodoBeastAggroA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAggroA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/720"}],"activity":"aggro"},{"id":772,"type":10,"name":"KodoBeastAttack","files":[{"id":721,"title":"KodoBeastAttackA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/721"},{"id":722,"title":"KodoBeastAttackB","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackB.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/722"},{"id":723,"title":"KodoBeastAttackC","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastAttackC.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/723"}],"activity":"alert"},{"id":773,"type":10,"name":"KodoBeastWound","files":[{"id":724,"title":"KodoBeastWoundA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/724"},{"id":725,"title":"KodoBeastWoundB","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundB.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/725"},{"id":726,"title":"KodoBeastWoundC","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundC.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/726"}],"activity":"injury"},{"id":774,"type":10,"name":"KodoBeastWoundCrit","files":[{"id":727,"title":"KodoBeastWoundCriticalA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastWoundCriticalA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/727"}],"activity":"injurycritical"},{"id":775,"type":10,"name":"KodoBeastDeath","files":[{"id":728,"title":"KodoBeastDeathA","type":"audio\/ogg; codecs=\"vorbis\"","path":"Sound\\\\Creature\\\\KodoBeast\\\\KodoBeastDeathA.wav","url":"https:\/\/wowgaming.altervista.org\/aowow\/static\/wowsounds\/728"}],"activity":"death"}],"name":LANG.types[19][2],"visibleCols":["activity"],"tabs":tabsRelated});
+                new Listview({template: 'comment', id: 'comments', name: LANG.tab_comments, tabs: tabsRelated, parent: 'lv-generic', data: lv_comments});
+                new Listview({template: 'screenshot', id: 'screenshots', name: LANG.tab_screenshots, tabs: tabsRelated, parent: 'lv-generic', data: lv_screenshots});
+                if (lv_videos.length || (g_user && g_user.roles & (U_GROUP_ADMIN | U_GROUP_BUREAU | U_GROUP_VIDEO)))
+                    new Listview({template: 'video', id: 'videos', name: LANG.tab_videos, tabs: tabsRelated, parent: 'lv-generic', data: lv_videos});
+                tabsRelated.flush();
+            //]]></script>
+                    <div class="clear"></div>
+                    <div class="text">
+                        <h2>Contribute</h2>
+                    </div>
+                    <div id="tabs-contribute-generic" style="width: 50%"></div>
+                    <div class="text" style="margin-right: 310px">
+                        <div class="tabbed-contents" style="clear: none">
+                            <div id="tab-add-your-comment" style="display: none">
+                                Please keep the following in mind when posting a comment:
+                                <ul>
+                                    <li><div>Your comment must be in English or it will be removed.</div></li>
+                                    <li><div>Unsure how to post? Check out our <a href="?help=commenting-and-you" target="_blank">handy guide</a>!</div></li>
+                                    <li><div>Please post questions on our <a href="?forums">forums</a> for quicker reply.</div></li>
+                                    <li><div>You might want to proof-read your comments before posting them.</div></li>
+                                </ul>
+                                <form action="/" method="post">
+                                    <div class="comment-edit-body"><textarea class="comment-editbox" rows="10" cols="40" name="commentbody" disabled="disabled"></textarea></div>
+                                    <small>You are not logged in. Please <a href="?account=signin">log in</a> or <a href="?account=signup">register an account</a> to add your comment.</small>
+                                </form>
+                            </div>
+                            <div id="tab-submit-a-screenshot" style="display: none">
+                                Simply browse for your screenshot using the form below.
+                                <ul>
+                                    <li><div>In-game screenshots are preferred over model-viewer-generated ones.</div></li>
+                                    <li><div>The higher the quality the better!</div></li>
+                                    <li><div>Be sure to read the <a href="?help=screenshots-tips-tricks" target="_blank">tips &amp; tricks</a> if you haven't before.</div></li>
+                                </ul>
+                                <form action="/" method="post">
+                                    <input type="file" name="screenshotfile" disabled="disabled" /><br/>
+                                    <small>You are not signed in. Please <a href="?account=signin">sign in</a> to submit a screenshot.</small>
+                                </form>
+                            </div>
+                            <div id="tab-suggest-a-video" style="display: none">
+                                Simply type the URL of the video in the form below.
+                                <form action="/" method="post">
+                                    <input type="text" name="videourl" disabled="disabled" /><br/>
+                                    <small>You are not signed in. Please <a href="?account=signin">sign in</a> to submit a video.</small>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+    var tabsContribute = new Tabs({parent: $WH.ge('tabs-contribute-generic')});
+    tabsContribute.add(LANG.tab_addyourcomment, {id: 'add-your-comment'});
+    tabsContribute.add(LANG.tab_submitascreenshot, {id: 'submit-a-screenshot'});
+    if (g_user && g_user.roles & (U_GROUP_ADMIN | U_GROUP_BUREAU | U_GROUP_VIDEO))
+        tabsContribute.add(LANG.tab_suggestavideo, {id: 'suggest-a-video'});
+    tabsContribute.flush();
+</script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
     </div>
 </div>
+<noscript>
+    <div id="noscript-bg"></div>
+    <div id="noscript-text"><b>This site makes extensive use of JavaScript.</b><br />Please <a href="https://www.google.com/support/adsense/bin/answer.py?answer=12654" target="_blank">enable JavaScript</a> in your browser.</div>
+</noscript>
+<script type="text/javascript">DomContentLoaded.now()</script>
+</body>
+</html>
