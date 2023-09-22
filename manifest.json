@@ -13,6 +13,10 @@
     {
       "matches": ["*://database.turtle-wow.org/*"],
       "js": ["atlas-script.js"]
+    },
+    {
+      "matches": ["*://wowgaming.altervista.org/aowow/*"],
+      "js": ["location-script.js"]
     }
   ],
   "browser_specific_settings": {
